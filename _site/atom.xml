@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Jędrzej Szczepaniak</title>
+ <link href="http://jedruniu.github.io/atom.xml" rel="self"/>
+ <link href="http://jedruniu.github.io"/>
+ <updated>2016-12-30T23:06:35+01:00</updated>
+ <id>http://jedruniu.github.io</id>
+ <author>
+   <name>Jędrzej Szczepaniak</name>
+   <email>jbszczepaniak@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>bonne annee</title>
+   <link href="http://jedruniu.github.io/2016/12/30/bonne-annee"/>
+   <updated>2016-12-30T00:00:00+01:00</updated>
+   <id>http://jedruniu.github.io/2016/12/30/bonne-annee</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+ 
+</feed>
