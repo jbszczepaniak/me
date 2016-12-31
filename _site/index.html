@@ -121,34 +121,9 @@
 <div class="entry-content">
 <h1>Processing</h1>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span>
-  <span class="nb">puts</span> <span class="s1">&#39;foo&#39;</span>
-<span class="k">end</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">key</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">None</span>
-
-<span class="k">def</span> <span class="nf">top_view</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">hash_map</span><span class="o">=</span><span class="p">{},</span> <span class="n">horizontal_distance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vertical_distance</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Task is inspired by https://www.hackerrank.com/challenges/tree-top-view/</span>
-<span class="sd">    However solution provided here is more versatile, because it&#39;s general,</span>
-<span class="sd">    it is mentioned in this editorial https://www.hackerrank.com/challenges/tree-top-view/editorial</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
-        <span class="k">return</span>
-
-    <span class="k">if</span> <span class="n">horizontal_distance</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">hash_map</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">or</span> <span class="n">hash_map</span><span class="p">[</span><span class="n">horizontal_distance</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">vertical_distance</span><span class="p">:</span>
-        <span class="n">hash_map</span><span class="p">[</span><span class="n">horizontal_distance</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">vertical_distance</span><span class="p">)</span>
-
-
-    <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
-        <span class="n">top_view</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">hash_map</span><span class="p">,</span> <span class="n">horizontal_distance</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vertical_distance</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
-        <span class="n">top_view</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">hash_map</span><span class="p">,</span> <span class="n">horizontal_distance</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">vertical_distance</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">hash_map</span></code></pre></figure>
+<div class="highlighter-rouge"><pre class="highlight"><code>foo
+</code></pre>
+</div>
 </div>
 </div>
 
