@@ -8,6 +8,8 @@ tags: []
 {% include JB/setup %}
 <h1>Processing</h1>
 
-```
-foo
-```
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
