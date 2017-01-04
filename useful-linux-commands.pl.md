@@ -1,10 +1,14 @@
 ---
 layout: default
 title: Przydatne komendy linuxa
-permalink: /en/useful-linux-commands/
+permalink: /pl/useful-linux-commands/
 ---
 
 1. Znajdź plik o danej nazwie w danej ścieżce.
 ```bash
-$find /home/ -name 'index*'
+$ find /home/ -name 'index*'
+```
+2. Prześlij plik między systemami przez SSH.
+```bash
+$ scp file.txt remote_system.com:/tmp
 ```
