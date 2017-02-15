@@ -5,11 +5,12 @@ layout: default
 <div class="home">
 
   <h1 class="page-heading">Posts</h1>
-  
+
   {{ content }}
 
   <ul class="post-list">
     {% for post in site.posts %}
+      {% if page.lang == post.lang %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
@@ -17,6 +18,7 @@ layout: default
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         </h2>
       </li>
+      {% endif %}
     {% endfor %}
   </ul>
 
