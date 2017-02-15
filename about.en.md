@@ -1,5 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /en/about/
+lang: en
 ---
+<h1>About me</h1>

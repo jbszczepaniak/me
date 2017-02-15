@@ -6,4 +6,4 @@ layout: default
 ---
 [English version]({{ site.baseurl }}{% link index.en.md %})
 
-[Wersja angielska]({{ site.baseurl }}{% link index.pl.md %})
+[Wersja polska]({{ site.baseurl }}{% link index.pl.md %})

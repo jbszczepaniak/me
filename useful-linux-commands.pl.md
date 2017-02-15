@@ -2,6 +2,7 @@
 layout: default
 title: Przydatne komendy linuxa
 permalink: /pl/useful-linux-commands/
+lang: pl
 ---
 
 1. Znajdź plik o danej nazwie w danej ścieżce.

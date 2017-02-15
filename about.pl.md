@@ -1,5 +1,7 @@
 ---
 layout: page
 title: O mnie
-permalink: /about/
+permalink: /pl/about/
+lang: pl
 ---
+<h1>co sie dzieje</h1>
