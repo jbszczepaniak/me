@@ -17,7 +17,7 @@ layout: default
         <h4>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         </h4>
-        <p>{{post.excerpt}}</p>
+        <p>{{post.excerpt |  truncatewords:75}}</p>
       </li>
       {% endif %}
     {% endfor %}
