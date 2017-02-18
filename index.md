@@ -4,6 +4,11 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: default
 ---
-[English version]({{ site.baseurl }}{% link index.en.md %})
 
-[Wersja polska]({{ site.baseurl }}{% link index.pl.md %})
+[**Wersja polska**]({{ site.baseurl }}{% link index.pl.md %})
+===
+
+[**English version**]({{ site.baseurl }} {% link index.en.md %})
+===
+
+

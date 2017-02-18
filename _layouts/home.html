@@ -4,7 +4,13 @@ layout: default
 
 <div class="home">
 
+  {% if page.lang == "en" %}
   <h1 class="page-heading">Posts</h1>
+  {% endif %}
+
+  {% if page.lang == "pl" %}
+  <h1 class="page-heading">Posty</h1>
+  {% endif %}
 
   {{ content }}
 
@@ -18,11 +24,9 @@ layout: default
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         </h4>
         <p>{{post.excerpt |  truncatewords:75}}</p>
+        <hr>
       </li>
       {% endif %}
     {% endfor %}
   </ul>
-
-  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
-
 </div>
