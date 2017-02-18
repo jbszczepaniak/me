@@ -33,7 +33,7 @@ Domyślnie Sublime ma bardzo ograniczone możliwości, jeśli chodzi o akcje na 
 Najczęściej korzystam z gita za pomocą interfejsu terminala. Chyba dlatego, że mam poczucie, że jeśli klikam na jakąś ikonę (np. w PhpStorm), to nie jestem pewny, czy stało się dokładnie to czego oczekiwałem podczas gdy w terminalu w celu upewnienia się jak wygląda sytuacja mogę uruchomić komendę git status. W przypadku Sublime Text również korzystam z terminala, ale tylko pomocniczo. Świetne możliwości i poczucie kontroli  daje <a href="https://github.com/kemayo/sublime-text-git">sublime-text-git</a>. Po zainstalowania dodatku, warto do ustawień dotyczących Key Bindings, dodać:
 </p>
 ```jso
-[n
+[
     { "keys": ["ctrl+alt+a"], "command": "git_raw", "args":
         {
             "command": "git add", "append_current_file": true }
