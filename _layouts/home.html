@@ -23,6 +23,13 @@ layout: default
         <h4>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         </h4>
+          {% if post.featured-image %}
+          <img src="{{ post.featured-image  }}"
+            style="display: block;
+            margin: 0 auto;
+            max-height: 80%;
+            max-width: 100%;"/>
+          {% endif %}
         <p>{{post.excerpt |  truncatewords:75}}</p>
         <hr>
       </li>

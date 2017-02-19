@@ -3,6 +3,7 @@ layout: post
 title:  "Dostrajanie Sublime Text 3 do pracy z PHP, część 1"
 date:   2016-11-08 21:00:00 +0100
 lang: pl
+featured-image: /assets/dostrajanie-sublime-cz1/sublime-text-logo.png
 permalink: /pl/dostrajanie-sublime-text-3-do-pracy-z-php-czesc-1
 ---
 <p align="justify">
