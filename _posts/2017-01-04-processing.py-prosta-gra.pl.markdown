@@ -3,6 +3,7 @@ layout: post
 title:  "Processing.py - prosta gra"
 date:   2017-01-04 21:00:00 +0100
 lang: pl
+featured-image: /assets/processing-logo.png
 permalink: /pl/prosta-gra-processing
 ---
 <p align="justify">
