@@ -6,7 +6,7 @@ lang: pl
 permalink: /pl/kodowanie-znakow-unicode-utf8-python3
 ---
 <p align="justify">
-Niejednokrotnie zdarza się, że brak kompatybilności między kodowaniami napisów w aplikacjach powoduje problemy. Najczęściej znajdowałem problem w przypadku odbierania danych z formularzy, albo przy interakcji z bazą danych. Lekarstwem na te problemy najczęściej było hasło ‚UTF-8’. Faktycznie zastosowanie kodowania UTF-8 rozwiązywało problemy. Zacząłem się zastanawiać, co to w ogóle oznacza , że używam takiego kodowania? Kiedy napisy kodować? Kiedy je dekodować? Później doszedłem do wniosku, że warto usystematyzować tą wiedzę i napisać o tym post.
+Niejednokrotnie zdarza się, że brak kompatybilności między kodowaniami napisów w aplikacjach powoduje problemy. Najczęściej znajdowałem problem w przypadku odbierania danych z formularzy, albo przy interakcji z bazą danych. Lekarstwem na te problemy najczęściej było hasło 'UTF-8’. Faktycznie zastosowanie kodowania UTF-8 rozwiązywało problemy. Zacząłem się zastanawiać, co to w ogóle oznacza , że używam takiego kodowania? Kiedy napisy kodować? Kiedy je dekodować? Później doszedłem do wniosku, że warto usystematyzować tą wiedzę i napisać o tym post.
 </p>
 <p align="justify">
 Trzeba uświadomić (przypomnieć) sobie, że każdy napis w końcu prezentowany jest jako ciąg bajtów. Dla mnie ważną informacja było poniższe zdanie, które warto wynieść z lektury tego posta:
@@ -34,9 +34,9 @@ Z pomocą przychodzą między innymi kodowania UTF (ang. Unicode Transformation 
 W języku Python 3, wszystkie napisy kodowane są za pomocą Unicode. Nie używa się już ASCII. Typ str zawiera znaki Unicode.
 </p>
 ```python
->>> polish_chars = „ąęłĄ”
+>>> polish_chars = "ąęłĄ"
 >>> type(polish_chars)
-<class ‚str’>
+<class str>
 ```
 
 <p align="justify">
@@ -44,10 +44,10 @@ Jak wspominałem wcześniej znaki Unicode kodujemy w pewien sposób (np. za pomo
 </p>
 
 ```python
->>> polish_chars.encode(‚ascii’)
+>>> polish_chars.encode('ascii')
 Traceback (most recent call last):
-File „<stdin>”, line 1, in <module>
-UnicodeEncodeError: ‚ascii’ codec can’t encode characters in position 0-3: ordinal not in range(128)
+File "<stdin>", line 1, in <module>
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
 ```
 
 <p align="justify">
@@ -55,9 +55,9 @@ Da się natomiast zakodować taki ciąg znaków Unicode za pomocą kodowania UTF
 </p>
 
 ```python
->>> polish_chars_bytes = polish_chars.encode(‚utf-8’)
+>>> polish_chars_bytes = polish_chars.encode('utf-8')
 >>>polish_chars_bytes
-b’\xc4\x85\xc4\x99\xc5\x82\xc4\x84′
+b'\xc4\x85\xc4\x99\xc5\x82\xc4\x84'
 ```
 
 <p align="justify">
@@ -65,8 +65,8 @@ Prefix b oznacza, że mamy doczynienia z obiektem typu bytes, a \x występuje pr
 </p>
 
 ```python
->>> polish_chars_bytes.decode(‚utf-8’)
-‚ąęłĄ’
+>>> polish_chars_bytes.decode('utf-8')
+'ąęłĄ'
 ```
 
 <p align="justify">
@@ -74,8 +74,8 @@ otrzymujemy porządany ciąg znaków Unicode zaprezentowny w zrozumiały dla cz�
 </p>
 
 ```python
->>> polish_chars_bytes.decode(‚utf-16’)
-‚藄駄苅蓄’
+>>> polish_chars_bytes.decode('utf-16')
+'藄駄苅蓄'
 ```
 
 <p align="justify">
@@ -83,10 +83,10 @@ W przykładzie powyżej kodowałem jedynie znaki spoza zakresu ASCII. Największ
 </p>
 
 ```python
->>> mixed_characters = „bloguję”
->>> mixed_characters_bytes = „bloguję”.encode(‚utf-8’)
+>>> mixed_characters = "bloguję"
+>>> mixed_characters_bytes = "bloguję".encode('utf-8')
 >>> mixed_characters_bytes
-b’bloguj\xc4\x99′
+b'bloguj\xc4\x99'
 ```
 
 <p align="justify">
@@ -94,23 +94,23 @@ b’bloguj\xc4\x99′
 </p>
 
 ```python
->>> ord(‚ę’)
+>>> ord('ę')
 281
->>> ord(‚b’)
+>>> ord('b')
 98
->>> ord(b’b’)
+>>> ord(b'b')
 98
 ```
 
 <p align="justify">
-Trzeba zwrócić uwagę na to, że dla typu bytes, tym samym jest 98 i literka b. To znaczy, że w ciągu b’bloguj\xc4\x99′ mieliśmy doczynienia z ciągiem bajtów. Po prostu w przypadku ciągu ąęłĄ wszystkie znaki były zakodowane za pomocą UTF-8 i niezrozumiałe w kodowaniu ASCII.  W przypadku bloguję też wszystkie znaki były zakodowane za pomocą UTF-8, ale część z tych znaków mogła była być zinterpretowana za pomocą kodowania ASCII, dlatego podczas wyświetlania ciągu bajtów, część znaków została automatycznie zinterpretowana w czytelny sposób. Warto więc mieć świadomość, że obiekt klasy bytes, spróbuje automatycznie wyświetlić znak z zastosowaniem ASCII, jeżeli będzie potrafił.
+Trzeba zwrócić uwagę na to, że dla typu bytes, tym samym jest 98 i literka b. To znaczy, że w ciągu b'bloguj\xc4\x99′ mieliśmy doczynienia z ciągiem bajtów. Po prostu w przypadku ciągu ąęłĄ wszystkie znaki były zakodowane za pomocą UTF-8 i niezrozumiałe w kodowaniu ASCII.  W przypadku bloguję też wszystkie znaki były zakodowane za pomocą UTF-8, ale część z tych znaków mogła była być zinterpretowana za pomocą kodowania ASCII, dlatego podczas wyświetlania ciągu bajtów, część znaków została automatycznie zinterpretowana w czytelny sposób. Warto więc mieć świadomość, że obiekt klasy bytes, spróbuje automatycznie wyświetlić znak z zastosowaniem ASCII, jeżeli będzie potrafił.
 </p>
 
 ```python
->>> b’\x51′.decode(‚ascii’)
-‚Q’
->>> b’Q’.decode(‚ascii’)
-‚Q’
+>>> b'\x51'.decode('ascii')
+'Q'
+>>> b'Q'.decode('ascii')
+'Q'
 ```
 
 <p align="justify">
