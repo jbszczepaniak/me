@@ -41,8 +41,9 @@ grandparent
 7. Zawartość plku <b>/etc/services</b> zawiera informacje dotyczące przyporządkowania portów do usług.
 
 8. Wyszukaj tekst wewnątrz plików w folderze.
+```bash
 $ grep -rnw 'path/to/somewhere' -e "string to be searched"
-
+```
 9. Zmień wyświetlania ścieżki w terminalu tak, żeby ograniczyć się do 'najbardziej zagnieżdżonych' X folderów (np dla X=2).
 ```bash
 $ PROMPT_DIRTRIM=2
