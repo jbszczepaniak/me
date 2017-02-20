@@ -37,7 +37,14 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
+      {% case page.lang }
+        {% when "pl" %}
+          <p>{{ site.description_pl | escape }}</p>
+        {% when "en" %}
+          <p>{{ site.description_en | escape }}</p>
+        {% else %}
+          <p>{{ site.description_pl | escape }}</p>
+      {% endcase %}
       </div>
     </div>
 
