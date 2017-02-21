@@ -84,3 +84,7 @@ $ git branch -u origin/my_branch
 ```bash
 $ rename -n "s/ /_/g" *
 ```
+Rozwiązanie tego samego problemu z użyciem siły:
+```bash
+for file in *; do mv "$file"  `echo $file | tr ' ' '_'`; done
+```
