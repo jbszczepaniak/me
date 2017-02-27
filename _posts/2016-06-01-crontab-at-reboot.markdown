@@ -5,8 +5,7 @@ date:   2016-06-01 21:00:00 +0100
 lang: pl
 permalink: /pl/crontab-reboot
 ---
-<p align="justify">
-W <a href="https://netitup.wordpress.com/2016/03/09/aliasy-z-komendami-ktore-potrzebuja-uprawnien-sudo/">jednym w poprzednich postów</a> pisałem o utworzeniu w Ubuntu nowej komendy, dzięki której mogę zciemniać i rozjaśniać ekran (nie działają klawisze funkcyjne odpowiedzialne za te funkcje). Dodatkowo potrzebowałem komendy, dzięki której będe mógł zmieniać intensywność podświetlenia klawiszy. Podobnie jak w przypadku zmieniania jasności ekranu, należy wpisywać do jednego z plików systemowych wartość liczbową (z pozwoleniem sudo).
+<p align="justify">W <a href="https://netitup.wordpress.com/2016/03/09/aliasy-z-komendami-ktore-potrzebuja-uprawnien-sudo/">jednym w poprzednich postów</a> pisałem o utworzeniu w Ubuntu nowej komendy, dzięki której mogę zciemniać i rozjaśniać ekran (nie działają klawisze funkcyjne odpowiedzialne za te funkcje). Dodatkowo potrzebowałem komendy, dzięki której będe mógł zmieniać intensywność podświetlenia klawiszy. Podobnie jak w przypadku zmieniania jasności ekranu, należy wpisywać do jednego z plików systemowych wartość liczbową (z pozwoleniem sudo).
 </p>
 
 <p align="justify">
