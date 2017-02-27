@@ -117,6 +117,27 @@ nothing to commit, working directory clean
 <p align="justify">
 Wynika z tego, że każdorazowo po modyfikacji pliku, należy wykonać na pliku najpierw <b>$git add</b>, a następnie <b>$git commit</b>, żeby zmiany w plikach zostały zarejestrowane. Można użyć <b>$git commit -a</b>, żeby zarejestrować zmiany  w plikach w fazie <i>modifed</i> i <i>staged</i>.Jest to pewne usprawnienie, należy jednak pamiętać, że nowe pliki muszą za pierwszym razem zostać dodane, za pomocą  <b>$git add</b>, żeby można było rejestrować w nich zmainy.
 </p>
-<p align="justify">
+```bash
+$ git status
+On branch master
+nothing to commit, working directory clean
+$ touch new_file
+$ git commit -a -m "Commit with a new file"
+On branch master
+Untracked files:
+    new_file
 
+nothing added to commit but untracked files present
+$ git add new_file
+$ git commit -m "Commit with new file"
+[master 2bb1760] Commit with new file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new_file
+```
+<p align="justify">
+Plik <i>new_file</i> nie został dodany do commicie, dlatego, że jest nieśledzony, dopiero dodanie go do repozytorium za pomocą <b>$git add</b>, sprawiło, że mógł znaleźć się w commicie. Dopiero teraz, można go zmienić i wykonując <b>$git commit -a</b> zaoszczędzić czas wpisania jednej komendy.
+</p>
+
+<p align="justify">
+Nie zostało to wcześniej napisane wprost, ale po wykonaniu <b>$git commit</b>, pliki zostają przeniesione z fazy <i>staged</i> do <i>unmodified</i>. To, że plik jest w fazie <i>unmodified</i> oznacza, że nie został on zmodyfikowany od ostatniego wykonania <b>$git commit</b>. Komenda <b>$git add</b>, używana jest do przeniesienia pliku z fazy <i>untracked</i> do <i>staged</i>, oraz z fazy <i>modified</i> do <i>staged</i>.
 </p>
