@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Przydatne komendy linuxa
-permalink: /pl/useful-linux-commands/
+permalink: /pl/przydatne-komendy-linuxa/
 lang: pl
 ---
 
-Przydatne komendy linuxa
-===
+<!-- Przydatne komendy linuxa
+ -->
 1. Znajdź plik o danej nazwie w danej ścieżce.
 ```bash
 $ find /home/ -name 'index*'
