@@ -3,6 +3,7 @@ layout: post
 title:  "7 pytań o Git'a"
 date:   2016-04-20 21:00:00 +0100
 lang: pl
+featured-image: /assets/7-pytan-o-gita/logo.png
 permalink: /pl/7-pytan-o-gita
 ---
 <p align="justify">
