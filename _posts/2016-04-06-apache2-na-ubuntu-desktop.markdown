@@ -10,6 +10,7 @@ permalink: /pl/apache2-na-ubuntu-desktop/
 <p align="justify">
 Po wejściu na adres <code>127.0.0.1</code> w przeglądarce na Ubuntu wchodzi się na stronę z nagłówkiem jak poniżej.
 </p>
+<!--more-->
 ![featured-image]({{ site.url }}/assets/apache2-na-ubuntu/featured.png)
 <p align="justify">
 Oznacza to, że domyślnie Ubuntu ma zainstalowany serwer WWW. Żeby sprawdzić, że taki serwis jest zainstalowany, i że działa, można wywołać podane niżej komendy i prześledzić ich wynik.

@@ -9,7 +9,7 @@ permalink: /pl/7-pytan-o-gita
 <p align="justify">
 Podczas pierwszego kontaktu, Git może być kłopotliwy w zrozumieniu. Ponadto, można zacząć używać Git, korzystając z narzędzi wbudowanych w IDE (ang. Integrated Development Environment) niewiele wiedząc o tym systemie kontroli wersji. W tym poście, chciałbym odpowiedzieć na pytania, które postawiłem sobie na początku nauki gita.
 </p>
-
+<!--more-->
 <h2>1. Czy GitHub to Git? Co to jest Bitbucket ?</h2>
 <p align="justify">
 Git jest rozproszonym systemem kontroli wersji, w którym rozwijany kod źródłowy znajduje się w repozytoriach. GitHub, czy Bitbucket to serwisy internetowe, dzięki którym ich użytkownicy mogą współdzielić między sobą repozytoria. Są też inne serwisy spełniające podobną rolę, np. GitLab. Można główne repozytorium przechowywać na dowolnym serwerze, albo nawet na koncie Dropbox.
