@@ -193,6 +193,3 @@ W ten sposób, w gałęzi master znajdują się wszystkie utworzone i edytowane 
 <p align="justify">
 <b>$git pull</b> i <b>$git fetch</b> służą do pobrania zmian ze zdalnego repozytorium. <b>$git fetch</b> tylko uaktualnia gałąź wskazującą na zdalne repozytorium (domyślnie origin), natomiast <b>$git pull</b>, dodatkowo wykonuje operację <b>$git merge</b> na skutek czego, aktualna lokalna gałąź synchronizuje się dodatkowo z gałęzią wksazującą na zdalne repozytorium. Oznacza to, że jeśli sklonujemy repozytorium (z serwisu Bitbucket, czy GitHub) i do tego repozytorium zdalnie wprowadzone zostaną zmiany, to żeby gałąź wskazująca na to repozytorium była zsynchronizowana ze zdalnym repozytorium, należy wykonać właśnie komendę <b>$git fetch</b>. Jednak na skutek takiej akcji, pliki w lokalnej gałęzi się nie zmienią. Żeby się zmieniły należy wykonać jeszcze <b>$git merge origin</b> (jeśli gałąź śledząca zdalne zmiany nazywa się origin).
 </p>
-
-
-
