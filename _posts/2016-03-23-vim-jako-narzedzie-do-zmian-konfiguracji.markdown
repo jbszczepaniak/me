@@ -34,11 +34,39 @@ Poniżej przedstawiam najbardziej przydatne w mojej oceny komendy:
 * `0` – przesuń kursor na początek aktualnej linii,
 * `$` – przesuń kursor na koniec aktualnej linii.
 
-<p align="justify"></p>
-<p align="justify"></p>
-<p align="justify"></p>
-<p align="justify"></p>
-<p align="justify"></p>
-<p align="justify"></p>
-<p align="justify"></p>
-<p align="justify"></p>
+<p align="justify">Wszystkie podane powyżej polecenia vima, można poprzedzić cyframi, które spowodują, że dana akcja wykona się wielokrotnie. Czyli np <code>8l</code>, przesunie kursor o 8 znaków w prawo. Poniżej znajdują się inne przydatne polecenia.</p>
+
+* `u` – cofnij zmianę,
+* `dd` – usuń aktualny wiersz,
+* `d3d` – usuń aktualny i 2 kolejne wiersze,
+* `dl` – usuń aktualną literę,
+* `d3l` – usuń aktualną i 2 kolejne litery,
+* `dw` – usuń akutalne słowo,
+* `d3w` – usuń aktualne i 3 kolejne słowa,
+
+* `v` – po naciśnięciu teo klawisza można zaznaczyć tekst, który chce się skopiować albo wyciąć. (Wszystkie  komendy służące do przesuwania kursora działają również tutaj),
+* `d` – po zaznaczeniu tekstu za pomocą v, d wycina tekst,
+* `y` – po zaznaczeniu tekstu za pomocą v, y wycina tekst,
+* `p` – wkleja skopiowany/wycięty tekst za kursorem,
+* `P` – wkleja skopiowany/wycięty tekst przed kursorem,
+
+* `/wyrażenieRegularne` – wyszukuje podane wyrażenie regularne. Można wpisać po prostu szukany ciąg wyrazów. Po naciśnięciu klaiwsza enter można nawigować po wyszukiwaniach za pomocą n – kolejny wynik  N – poprzedni wynik,
+
+* `:s/wyrażenieRegularne/ciąg/` – zamienia pierwsze napotkane podane wyrażenie regularne na podany ciąg. Znak / może być zastąpiony innym. Taki zapis: :s:wyrażenieRegularne:ciąg: jest równoznaczny. Jeżeli dodamy na końcu takiej komendy flagę g, zamiana odbędzie się dla wszystkich dopasowań wyrażenia regularnego w linii, Natomiast jeżeli na począttku komendy postawimy znak %, zamiana odbędzie się dla całego pliku,
+
+<p align="justify">
+Zatem jeżeli jest plik, w którym wielokrotnie na początku lini występuje znak #(komentarze), który życzymy sobie usunąć, należy zastosować komendę <code>:%s/^#//g</code>, ^ jest częścią wyrażenia regularnego i oznacza, że szukamy tylko # umiesczonych na początku linii. W efekcie, takie # zostają zamienione na nic, czyli są usuwane.
+</p>
+<p align="justify">
+Ciężko rozróżnić czym jest komenda w vim, dlatego pojedyncze skróty klawiaturowe również opisywałem jako komendy. Komendy rozpoczynające się na : bądź / są widoczne podczas wpisywania na dole ekranu i są zapisywane w historii. Zatem po naciśnięciu : można strzałkami odwoływać się do wcześniej wywoływanych komend rozpoczynających się na :, syturacja jest analogiczna dla komend zaczynających się na /.
+</p>
+
+* `:set number` wkleja na początek linii ich numerację.
+*
+* `:q!` – wychodzi z vim bez zapisywania zmian.
+* `:w` – zapisuje zmiany w pliku. Jeżeli plik nie ma jeszcze nazwy, jako argument trzeba podać nazwę pliku.
+* `:wq` – zapisuje zmiany i zamyka plik.
+* `:x` – praktycznie robi to samo co :wq, jednak w dokumentacji można przeczytać "Like „:wq”, but write only when changes have been made".
+
+<p align="justify">
+Zdaje sobie sprawę z tego, że takich artykułów jak ten wyżej są w sieci dziesiątki albo setki, ale to jest moja lista najpotrzebniejszych komend. Myślę również, że za każdym razem kiedy w celu osiągnięcia jakiegoś efektu naciska się podejrzanie dużo klawiszy, warto sprawdzić w dokumentacji, czy nie da się tego zrobić sprawniej.</p>
