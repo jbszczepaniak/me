@@ -9,6 +9,7 @@ permalink: /pl/aliasy-z-komendami-ktore-potrzebuja-uprawnien-sudo
 <p align="justify">
 Po instalacji Ubuntu na moim komputerze, okazało się, że mogę liczyć na dobre wsparcie dla większości sprzętu. Nie działa za to zmiana jasności podświetlenia monitora za pomocą klawiszy funkcyjnych- istotna dla mnie funkcja. Poniżej prezentuję rozwiązanie tego problemu (chociaż nie aż tak dobre, jak przytrzymanie <code>fn+f5</code> i <code>fn+f6</code>).
 </p>
+<!--more-->
 <p align="justify">
 W przypadku mojego systemu i sprzętu wprowadzenie wartości liczbowej do pliku <i>/sys/class/backlight/intel_backlight/brightness</i> z zakresu 1-937 pozwala na regulację jasności ekranu.
 </p>
