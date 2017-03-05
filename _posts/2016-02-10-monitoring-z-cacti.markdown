@@ -4,10 +4,12 @@ title:  "Monitoring z Cacti"
 date:   2016-02-10 21:00:00 +0100
 lang: pl
 permalink: /pl/monitoring-z-cacti
+featured-image: /assets/monitoring-z-cacti/cacti1.png
 ---
 <p align="justify">
 Celem niniejszego postu jest prezentacja uruchomienia monitoringu sieci domowej za pomocą Cacti (aplikacja wydana na licencji GPL). Monitoring będzie dostępny z Internetu dzięki usłudze DynamicDNS.
 </p>
+<!--more-->
 ![topology]({{ site.url }}/assets/monitoring-z-cacti/cacti1.png){: .center-image }
 
 <p align="justify">
