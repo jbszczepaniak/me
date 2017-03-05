@@ -5,6 +5,7 @@ date:   2016-02-24 21:00:00 +0100
 lang: pl
 permalink: /pl/3-sposoby-na-dezaktywacje-konta-uzytkownika-w-linuxie
 ---
+<!--more-->
 <p align="justify">
 Konto użytkownika dodaje się za pomocą komendy useradd.
 </p>
