@@ -4,5 +4,3 @@ title: Useful linux commands
 permalink: /en/useful-linux-commands/
 lang: en
 ---
-
-Work In Progress
