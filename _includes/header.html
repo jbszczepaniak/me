@@ -1,6 +1,10 @@
 <header class="site-header" role="banner">
   <div class="wrapper">
-    <a class="site-title" href="/{{page.lang}}">{{ site.title | escape }}</a>
+    {% if page.lang != 'none' %}
+      <a class="site-title" href="/{{page.lang}}">{{ site.title | escape }}</a>
+    {% else %}
+      <a class="site-title" href="/">{{ site.title | escape }}</a>
+    {% endif %}
     <nav class="site-nav">
       <span class="menu-icon" onclick="void(0)">
         <svg viewBox="0 0 18 15" width="18px" height="15px">
