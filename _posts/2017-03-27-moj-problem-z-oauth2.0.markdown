@@ -1,11 +1,13 @@
 ---
 layout: post
 title:  "Mój problem z OAuth2.0"
-date:   2017-03-28 00:15:00 +0100
+date:   2017-03-27 00:15:00 +0100
 lang: pl
 permalink: /pl/moj-problm-z-oauth2
 featured-image: /assets/moj-problem-z-oauth2.0/oauth-logo.png
 ---
+
+Jak działa OAuth2.0 z grant type 'Authorization Code' i dlaczego programistom ciężko jest zrozumieć działanie protokołu OAuth2.0?
 <!--more-->
 <p align="justify">
 Próbowałem wcześniej zrozumieć jak działa OAuth2.0, ale zawsze uznawałem, że jest to na tyle skomplikowane, że sobie podaruję. Gdy zapytany ostatnio o szczegóły działania OAuth2.0 nie potrafiłem powiedzieć nic więcej niż:</p>
