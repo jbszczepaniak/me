@@ -1,23 +1,23 @@
 ---
 layout: post
-title:  "Mój problem z OAuth2.0"
+title:  "Mój problem z OAuth 2.0"
 date:   2017-03-27 00:15:00 +0100
 lang: pl
 permalink: /pl/moj-problm-z-oauth2
 featured-image: /assets/moj-problem-z-oauth2.0/oauth-logo.png
 ---
 
-Jak działa OAuth2.0 z grant type 'Authorization Code' i dlaczego programistom ciężko jest zrozumieć działanie protokołu OAuth2.0?
+Jak działa OAuth 2.0 z grant type 'Authorization Code' i dlaczego programistom ciężko jest zrozumieć działanie protokołu OAuth2.0?
 <!--more-->
 <p align="justify">
-Próbowałem wcześniej zrozumieć jak działa OAuth2.0, ale zawsze uznawałem, że jest to na tyle skomplikowane, że sobie podaruję. Gdy zapytany ostatnio o szczegóły działania OAuth2.0 nie potrafiłem powiedzieć nic więcej niż:</p>
+Próbowałem wcześniej zrozumieć jak działa OAuth 2.0, ale zawsze uznawałem, że jest to na tyle skomplikowane, że sobie podaruję. Gdy zapytany ostatnio o szczegóły działania OAuth 2.0 nie potrafiłem powiedzieć nic więcej niż:</p>
 > no.. to jest.. protokół do logowania w social media
 
 <p align="justify">
 powiedziałem sobie, że trzeba uzupełnić lukę w wiedzy webowej.
 </p>
 <p align="justify">
-Natychmiast udałem się do <a href="https://oauth.net/2/">źródła</a> i zaczałem czytać. Duży nacisk w dokumentacji kładzie się na to, że OAuth2.0 służy do autoryzacji, a nie do uwierzytelniania. Różnicę między uwierzytelnieniem a autoryzacją można przypomnieć sobie <a href="https://pl.wikipedia.org/wiki/Uwierzytelnianie">tutaj</a>. OAuth2.0 oferuje scenariusze użycia. Dla każdego scenariusza określony jest osobny tzw. <b>grant type</b>. I tak mamy:</p>
+Natychmiast udałem się do <a href="https://oauth.net/2/">źródła</a> i zaczałem czytać. Duży nacisk w dokumentacji kładzie się na to, że OAuth 2.0 służy do autoryzacji, a nie do uwierzytelniania. Różnicę między uwierzytelnieniem a autoryzacją można przypomnieć sobie <a href="https://pl.wikipedia.org/wiki/Uwierzytelnianie">tutaj</a>. OAuth 2.0 oferuje scenariusze użycia. Dla każdego scenariusza określony jest osobny tzw. <b>grant type</b>. I tak mamy:</p>
 <ol>
     <li>Authorization Code,</li>
     <li>Password,</li>
@@ -26,9 +26,9 @@ Natychmiast udałem się do <a href="https://oauth.net/2/">źródła</a> i zacza
 </ol>
 
 <p align="justify">
-Fantastyczny, zrozumiały post o wszystkich czterech scenariuszach można przeczytać na <a href="https://aaronparecki.com/oauth-2-simplified">https://aaronparecki.com/oauth-2-simplified</a>. Ja skupię się na pierwszym scenariuszu, dlatego, że wystarczy to, żeby pokazać absurd, którego się doszukałem przeglądając artykuły dotyczące OAuth2.0.</p>
+Fantastyczny, zrozumiały post o wszystkich czterech scenariuszach można przeczytać na <a href="https://aaronparecki.com/oauth-2-simplified">https://aaronparecki.com/oauth-2-simplified</a>. Ja skupię się na pierwszym scenariuszu, dlatego, że wystarczy to, żeby pokazać absurd, którego się doszukałem przeglądając artykuły dotyczące OAuth 2.0.</p>
 <p align="justify">
-OAuth2.0 definiuje role, które biorą udział przy wymianie tokenów:
+OAuth 2.0 definiuje role, które biorą udział przy wymianie tokenów:
 </p>
 <ol>
     <li>API - serwer, na którym znajdują się zasoby, do których dostęp chcemy uzyskać,</li>
@@ -38,11 +38,11 @@ OAuth2.0 definiuje role, które biorą udział przy wymianie tokenów:
 </ol>
 
 <p align="justify">
-Często serwer autoryzacyjny i serwer z zasobami, mogą być tym samym serwerem, ale z punktu widzenia OAuth2.0 to są dwa różne byty i tak je będziemy dalej traktować. Serwer nazwany tutaj klientem, jest zwykłym serwerem z aplikacją w PHP, ASP.NET, czy w Ruby on Rails...
+Często serwer autoryzacyjny i serwer z zasobami, mogą być tym samym serwerem, ale z punktu widzenia OAuth 2.0 to są dwa różne byty i tak je będziemy dalej traktować. Serwer nazwany tutaj klientem, jest zwykłym serwerem z aplikacją w PHP, ASP.NET, czy w Ruby on Rails...
 </p>
 
 <p align="justify">
-Żeby umożliwić komunikację z API którym jesteśmy zainteresowani, np z Graph API od Facebook'a, należy najpierw zarejestrować aplikację (w przypadku Facebooka na <a href="https://developers.facebook.com/">https://developers.facebook.com</a>). Przy rejestracji aplikacji należy podać adres na jaki aplikacja ma przekierowywać użytkownika. Wynikiem rejestracji jest identyfikator (client id) oraz klucz (client secret), które będą używane podczas zapytań do serwera autoryzacyjnego. Klucze te trzyma się w back-endzie aplikacji (która z perspektywy OAuth2.0 nazwana została klientem).
+Żeby umożliwić komunikację z API którym jesteśmy zainteresowani, np z Graph API od Facebook'a, należy najpierw zarejestrować aplikację (w przypadku Facebooka na <a href="https://developers.facebook.com/">https://developers.facebook.com</a>). Przy rejestracji aplikacji należy podać adres na jaki aplikacja ma przekierowywać użytkownika. Wynikiem rejestracji jest identyfikator (client id) oraz klucz (client secret), które będą używane podczas zapytań do serwera autoryzacyjnego. Klucze te trzyma się w back-endzie aplikacji (która z perspektywy OAuth 2.0 nazwana została klientem).
 </p>
 
 <h2>Faktyczna autoryzacja za pomocą 4 wiadomości</h2>
@@ -113,12 +113,12 @@ Celowo pominąłem tutaj problem niepowodzenia na poszczególnych etapach wymian
 
 <h2>Do czego nie używać wygenerowanego tokenu dostępu?</h2>
 <p align="justify">
-W sekcji <b>Common pitfalls for authentication using OAuth</b> na stronie <a href="https://oauth.net/articles/authentication/">https://oauth.net/articles/authentication</a> znajduje się zakładka, w której można przeczytać o tym, że <b>nie należy traktować faktu uzyskania tokenu dostępu jako dowód na uwierzytelnienie.</b> Wydaje się to być zrozumiałe. Na tej samej stronie napisane jest, że można budować uwierzytelnianie użytkowników z OAuth2.0, jeżeli użyje się protokołu <a href="http://openid.net/connect/">OpenID Connect</a>, który zbudowany jest własnie z pomocą OAuth2.0.
+W sekcji <b>Common pitfalls for authentication using OAuth</b> na stronie <a href="https://oauth.net/articles/authentication/">https://oauth.net/articles/authentication</a> znajduje się zakładka, w której można przeczytać o tym, że <b>nie należy traktować faktu uzyskania tokenu dostępu jako dowód na uwierzytelnienie.</b> Wydaje się to być zrozumiałe. Na tej samej stronie napisane jest, że można budować uwierzytelnianie użytkowników z OAuth 2.0, jeżeli użyje się protokołu <a href="http://openid.net/connect/">OpenID Connect</a>, który zbudowany jest własnie z pomocą OAuth 2.0.
 </p>
 
-<h2>Dlaczego programiści mają problem ze zrozumieniem OAuth2.0?</h2>
+<h2>Dlaczego programiści mają problem ze zrozumieniem OAuth 2.0?</h2>
 <p align="justify">
-Z jednej strony dostępne są bardzo obszerne materiały na oficjalnej stronie <a href="https://oauth.net/">OAuth2.0</a>. Dostępne są dokumenty RFC, mówiące dokładnie o tym jak zbudowany jest protokół, dostępne są świetne posty na blogach dotyczące OAuth2.0, jak choćby ten wspomniany przeze mnie wcześniej na <a href="https://aaronparecki.com/oauth-2-simplified/">https://aaronparecki.com/oauth-2-simplified</a>.
+Z jednej strony dostępne są bardzo obszerne materiały na oficjalnej stronie <a href="https://oauth.net/">OAuth 2.0</a>. Dostępne są dokumenty RFC, mówiące dokładnie o tym jak zbudowany jest protokół, dostępne są świetne posty na blogach dotyczące OAuth 2.0, jak choćby ten wspomniany przeze mnie wcześniej na <a href="https://aaronparecki.com/oauth-2-simplified/">https://aaronparecki.com/oauth-2-simplified</a>.
 Z drugiej strony, można wejść na stronę
 <a href="https://developers.facebook.com/docs/php/howto/example_facebook_login">https://developers.facebook.com/docs/php/howto/example_facebook_login</a> gdzie podane są poniższe przykłady 'logowania z Facebook':
 </p>
@@ -216,5 +216,5 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 ```
 
 <p align="justify">
-Czytając ten kod, ciężko jest nie odnieść wrażenia, że Facebook proponuje dokładnie takie rozwiązanie, które odradza oficjalna strona OAuth2.0. To znaczy, po uzyskaniu tokenu autoryzacyjnego i wymienieniu go na token uwierzytelniający, zakłada się, że użytkownik jest zalogowany w aplikacji. Wydaje mi się, że ciężko jest zrozumieć programistom działanie OAuth2.0 i logowania w mediach społecznościowych, gdy informacje w sieci na ten temat są tak niespójne.
+Czytając ten kod, ciężko jest nie odnieść wrażenia, że Facebook proponuje dokładnie takie rozwiązanie, które odradza oficjalna strona OAuth 2.0. To znaczy, po uzyskaniu tokenu autoryzacyjnego i wymienieniu go na token uwierzytelniający, zakłada się, że użytkownik jest zalogowany w aplikacji. Wydaje mi się, że ciężko jest zrozumieć programistom działanie OAuth 2.0 i logowania w mediach społecznościowych, gdy informacje w sieci na ten temat są tak niespójne.
 </p>
