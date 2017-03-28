@@ -208,5 +208,5 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 ```
 
 <p align="justify">
-Czytając ten kod, ciężko jest nie odnieść wrażenia, że Facebook proponuje dokładnie takie rozwiązanie, które odradza oficjalna strona OAuth 2.0. To znaczy, po uzyskaniu tokenu autoryzacyjnego i wymienieniu go na token uwierzytelniający, zakłada się, że użytkownik jest zalogowany w aplikacji. Wydaje mi się, że ciężko jest zrozumieć programistom działanie OAuth 2.0 i logowania w mediach społecznościowych, gdy informacje w sieci na ten temat są tak niespójne.
+Czytając ten kod, ciężko jest nie odnieść wrażenia, że Facebook proponuje dokładnie takie rozwiązanie, które odradza oficjalna strona OAuth 2.0. To znaczy, po uzyskaniu tokenu autoryzacyjnego i wymienieniu go na token dostępu, zakłada się, że użytkownik jest zalogowany w aplikacji. Wydaje mi się, że ciężko jest zrozumieć programistom działanie OAuth 2.0 i logowania w mediach społecznościowych, gdy informacje w sieci na ten temat są tak niespójne.
 </p>
