@@ -17,7 +17,7 @@ Próbowałem wcześniej zrozumieć jak działa OAuth 2.0, ale zawsze uznawałem,
 powiedziałem sobie, że trzeba uzupełnić lukę w wiedzy webowej.
 </p>
 <p align="justify">
-Natychmiast udałem się do <a href="https://oauth.net/2/">źródła</a> i zaczałem czytać. Duży nacisk w dokumentacji kładzie się na to, że OAuth 2.0 służy do autoryzacji, a nie do uwierzytelniania. Różnicę między uwierzytelnieniem a autoryzacją można przypomnieć sobie <a href="https://pl.wikipedia.org/wiki/Uwierzytelnianie">tutaj</a>. OAuth 2.0 oferuje scenariusze użycia. Dla każdego scenariusza określony jest osobny tzw. <b>grant type</b>. I tak mamy:</p>
+Natychmiast udałem się do <a href="https://oauth.net/2/">źródła</a> i zaczałem czytać. Duży nacisk w dokumentacji kładzie się na to, że OAuth 2.0 służy do autoryzacji, a nie do uwierzytelniania. Różnicę między uwierzytelnieniem a autoryzacją można przypomnieć sobie <a href="https://pl.wikipedia.org/wiki/Uwierzytelnianie">tutaj</a>. OAuth 2.0 oferuje różne scenariusze użycia. Dla każdego scenariusza określony jest osobny tzw. <b>grant type</b>. I tak mamy:</p>
 <ol>
     <li>Authorization Code,</li>
     <li>Password,</li>
