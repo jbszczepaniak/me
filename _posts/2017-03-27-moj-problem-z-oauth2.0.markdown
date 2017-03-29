@@ -69,19 +69,33 @@ Po złożeniu adresu będzie on wyglądać mniej więcej tak:
 https://oauth2-authorization-server.com/endpoint?response_type=grant&client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&scope=user_account&state=hkj34kjh5lkj2
 ```
 
-Takie zapytanie wykonywane jest za pomocą metody HTTP GET.
+Złożony adres wysyłany jest w  odpowiedzi do przeglądarki w nagłówku <b>location</b>.
+
+![phase1]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase1.svg){: .center-image }
+
+Przeglądarka po otrzymaniu takiej odpowiedzi, przekierowuje na otrzymany adres.
+
+![phase2]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase2.svg){: .center-image }
 
 <h1>2. Authorization Response</h1>
+
+![phase3]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase3.svg){: .center-image }
+
 <p align="justify">
-Jeśli właściciel zasobu wyrazi zgodę na dostęp, serwer autoryzacyjny odpowiada klientowi na podany wcześniej redirect_uri
+Jeśli właściciel zasobu wyrazi zgodę na dostęp, serwer autoryzacyjny odpowiada wiadomością HTTP z adresem redirect_uri w nagłówku <b>location</b>
 z dwoma paramterami:
 </p>
 * `code=AUTHORIZATION_CODE` wartość, która zostanie 'wymieniona' na token dostępu,
 * `state=hkj34kjh5lkj2` ta wartość musi być identyczna do tej wysłanej w zapytaniu.
 
+Przeglądarka po otrzymaniu tej odpowiedzi wykonuje zlecone przekierowanie:
+
+![phase4]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase4.svg){: .center-image }
 
 <h1>3. Access Token Request</h1>
+<p align="justify">
 Żeby klient uzyskał token dostępu, musi zaprezentować serwerowi autoryzującemu otrzymany kod autoryzacyjny. W tym celu wysyłane jest zapytanie do serwera autoryzacyjnego z następującymi parametrami:
+</p>
 
 * `grant_type=authorization_code` wartość stała dla tego scenariusza,
 * `code=AUTHORIZATION_CODE` otrzymany w poprzednim kroku kod,
@@ -97,12 +111,21 @@ https://api.oauth2server.com/token-endpoint?grant_type=authorization_code&?code=
 
 Zapytanie wysyłane jest za pomocą metody HTTP POST.
 
+
+![phase5]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase5.svg){: .center-image }
+
 <h1>4. Access Token Response</h1>
-Jeżeli parametry zapytania się zgadzają, serwer autoryzacyjny wysyła do klienta token dostępu, wraz z jego datą ważności. Taki token może być używany po to, żeby odpytywać z nim API o zasoby, których właścicielem jest użytkownik (np. jego listę kontaktów, zdjęcia, dane personalne...).
+<p align="justify">
+Jeżeli parametry zapytania się zgadzają, serwer autoryzacyjny wysyła do klienta token dostępu, wraz z jego datą ważności.
+</p>
+
+
+<p align="justify">
+Taki token może być używany po to, żeby odpytywać z nim API o zasoby, których właścicielem jest użytkownik (np. jego listę kontaktów, zdjęcia, dane personalne...).
 API po otrzymaniu zapytania z tokenem jest w stanie stwierdzić czy może udzielić dostępu do zasobu.
 
 Celowo pominąłem tutaj problem niepowodzenia na poszczególnych etapach wymiany oraz problem tokenów odświeżających.
-
+</p>
 <h2>Do czego nie używać wygenerowanego tokenu dostępu?</h2>
 <p align="justify">
 W sekcji <b>Common pitfalls for authentication using OAuth</b> na stronie <a href="https://oauth.net/articles/authentication/">https://oauth.net/articles/authentication</a> znajduje się zakładka, w której można przeczytać o tym, że <b>nie należy traktować faktu uzyskania tokenu dostępu jako dowód na uwierzytelnienie.</b> Wydaje się to być zrozumiałe. Na tej samej stronie napisane jest, że można budować uwierzytelnianie użytkowników z OAuth 2.0, jeżeli użyje się protokołu <a href="http://openid.net/connect/">OpenID Connect</a>, który zbudowany jest własnie z pomocą OAuth 2.0.
