@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My ptoblem with OAuth 2.0"
+title:  "My problem with OAuth 2.0"
 <!-- date:   2017-03-27 00:15:00 +0100 -->
 lang: en
 permalink: /en/my-problem-with-oauth2
@@ -19,7 +19,7 @@ I've decided that this is the time when I'll learn this technology.
 </p>
 
 <p align="justify">
-Natychmiast udałem się do <a href="https://oauth.net/2/">źródła</a> i zaczałem czytać. Duży nacisk w dokumentacji kładzie się na to, że OAuth 2.0 służy do autoryzacji, a nie do uwierzytelniania. Różnicę między uwierzytelnieniem a autoryzacją można przypomnieć sobie <a href="https://pl.wikipedia.org/wiki/Uwierzytelnianie">tutaj</a>. OAuth 2.0 oferuje różne scenariusze użycia. Dla każdego scenariusza określony jest osobny tzw. <b>grant type</b>. I tak mamy:</p>
+I went to <a href="https://oauth.net/2/">the offical website of OAuth2.0</a> immediately and I've started to read. It is strongly emphasized in the documentaion that the OAuth2.0 protocol should be used for authorization and <b>not for authentication</b>. The difference between those two notions you can find <a href="https://en.wikipedia.org/wiki/Authentication">here</a>. OAuth 2.0 offers different use cases. For each use case there is an individual <b>grant type</b>. So we have the following types:
 <ol>
     <li>Authorization Code,</li>
     <li>Password,</li>
@@ -28,20 +28,20 @@ Natychmiast udałem się do <a href="https://oauth.net/2/">źródła</a> i zacza
 </ol>
 
 <p align="justify">
-Fantastyczny, zrozumiały post o wszystkich czterech scenariuszach można przeczytać na <a href="https://aaronparecki.com/oauth-2-simplified">https://aaronparecki.com/oauth-2-simplified</a>. Ja skupię się na pierwszym scenariuszu, dlatego, że wystarczy to, żeby pokazać absurd, którego się doszukałem przeglądając artykuły dotyczące OAuth 2.0.</p>
+About all scenarios one can read on fantastic, comprehensible blog post: <a href="https://aaronparecki.com/oauth-2-simplified">https://aaronparecki.com/oauth-2-simplified</a>. I will focus on the first scenario because it is sufficent to show an absurd which I found while reading about OAuth2.0.</p>
+
 <p align="justify">
-OAuth 2.0 definiuje role, które biorą udział przy wymianie tokenów:
+OAuth 2.0 defines roles, which are involved in tokens exchange:
 </p>
 <ol>
-    <li>API - serwer, na którym znajdują się zasoby, do których dostęp chcemy uzyskać,</li>
-    <li>klient - serwer, który chce uzyskać dostęp do zasobów wyszczególnionych w punkcie 1,</li>
-    <li>serwer autoryzacyjny,</li>
-    <li>właściciel zasobów.</li>
+    <li>API - server, with resources to which access one want to have an access,</li>
+    <li>client - server, which wants to have an access to resources from point 1,</li>
+    <li>authorization server,</li>
+    <li>resource owner.</li>
 </ol>
 
 <p align="justify">
-Często serwer autoryzacyjny i serwer z zasobami, mogą być tym samym serwerem, ale z punktu widzenia OAuth 2.0 to są dwa różne byty i tak je będziemy dalej traktować. Serwer nazwany tutaj klientem, jest zwykłym serwerem z aplikacją w PHP, ASP.NET, czy w Ruby on Rails...
-</p>
+It is not unusual that authorization server and server with resources are sitting on the same machine, but from perspective of OAuth 2.0 those are two different entities, and we will treat them separately here. The server which is called here a "client" is a regular application server with application written in PHP, ASP.NET, Ruby on Rails...</p>
 
 <p align="justify">
 Żeby umożliwić komunikację z API którym jesteśmy zainteresowani, np z Graph API od Facebook'a, należy najpierw zarejestrować aplikację (w przypadku Facebooka na <a href="https://developers.facebook.com/">https://developers.facebook.com</a>). Przy rejestracji aplikacji należy podać adres na jaki aplikacja ma przekierowywać użytkownika. Wynikiem rejestracji jest identyfikator (client id) oraz klucz (client secret), które będą używane podczas zapytań do serwera autoryzacyjnego. Klucze te trzyma się w back-endzie aplikacji (która z perspektywy OAuth 2.0 nazwana została klientem).
