@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "My problem with OAuth 2.0"
-<!-- date:   2017-03-27 00:15:00 +0100 -->
+date:   2017-03-27 00:15:00 +0100
 lang: en
 permalink: /en/my-problem-with-oauth2
 featured-image: /assets/moj-problem-z-oauth2.0/oauth-logo.png
@@ -31,7 +31,7 @@ I went to <a href="https://oauth.net/2/">the offical website of OAuth2.0</a> imm
 About all scenarios one can read on fantastic, comprehensible blog post: <a href="https://aaronparecki.com/oauth-2-simplified">https://aaronparecki.com/oauth-2-simplified</a>. I will focus on the first scenario because it is sufficent to show an absurd which I found while reading about OAuth2.0.</p>
 
 <p align="justify">
-OAuth 2.0 defines roles, which are involved in tokens exchange:
+OAuth 2.0 defines roles which are involved in tokens exchange:
 </p>
 <ol>
     <li>API - server, with resources to which access one want to have an access,</li>
@@ -44,10 +44,10 @@ OAuth 2.0 defines roles, which are involved in tokens exchange:
 It is not unusual that authorization server and server with resources are sitting on the same machine, but from perspective of OAuth 2.0 those are two different entities, and we will treat them separately here. The server which is called here a "client" is a regular application server with application written in PHP, ASP.NET, Ruby on Rails...</p>
 
 <p align="justify">
-Żeby umożliwić komunikację z API którym jesteśmy zainteresowani, np z Graph API od Facebook'a, należy najpierw zarejestrować aplikację (w przypadku Facebooka na <a href="https://developers.facebook.com/">https://developers.facebook.com</a>). Przy rejestracji aplikacji należy podać adres na jaki aplikacja ma przekierowywać użytkownika. Wynikiem rejestracji jest identyfikator (client id) oraz klucz (client secret), które będą używane podczas zapytań do serwera autoryzacyjnego. Klucze te trzyma się w back-endzie aplikacji (która z perspektywy OAuth 2.0 nazwana została klientem).
+To enable communication with API of interest (for example with Graph API from Facebook), one has to register the appliaction (in case of Facebook on <a href="https://developers.facebook.com/">https://developers.facebook.com</a>). During registration, address on which application should redirect user must be provided. The result of a registration is client id as well as client secret which will be used during requests to authorization server. Keys should be hold in secret on the back-end of application (from perspective of Auth 2.0, this back-end is called the client).
 </p>
 
-<h2>Faktyczna autoryzacja za pomocą 4 wiadomości</h2>
+<h2>Actural authorization with 4 messages</h2>
 <ol>
     <li>Authorization Request</li>
     <li>Authorization Response</li>
@@ -57,11 +57,12 @@ It is not unusual that authorization server and server with resources are sittin
 
 <h1>1. Authorization Request</h1>
 <p align="justify">
-Przygotowywany jest URI - adres pod którym serwer autoryzacyjny wyświetli dla użytkownika (właściciela zasobu) pytanie o to, czy ten zgadza się na udzielenie klientowi zgody na dostęp do danych. W skład URI wchodzą:
+URI is prepared - address under which authorization server will display for the user (the owner of the resource) question, whether user agrees to grant access to protected resource to the client. URI consist of: 
 </p>
-* `response_type=grant` wartość stała dla tego scenariusza.
-* `client_id=CLIENT_ID` identyfikator otrzymany podczas rejestracji apliacji na serwerze autoryzującym,
-* `redirect_uri=REDIRECT_URI` adres przekierowania po wyświetleniu użytkownikowi zapytania o dostęp do zasobu zdefiniowany na etapie tworzenia aplikacji na serwerze autoryzującym,
+* `response_type=grant` constant value for this scenario.
+* `client_id=CLIENT_ID` identification obtained during registration of app on authorization server,
+<<<<<<<<<<<TUTAJ
+* `redirect_uri=REDIRECT_URI` adres przekierowania po wyświetleniu użytkownikowi zapytania o dostęp do zasobu (zdefiniowany na etapie tworzenia aplikacji na serwerze autoryzującym),
 * `scope=user_account` zakres zasobów do jakich udzielany jest dostęp,
 * `state=hkj34kjh5lkj2` wartość losowa mająca na celu zapobieganie atakom CSRF.
 
