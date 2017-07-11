@@ -14,12 +14,14 @@ How does OAuth 2.0 works with 'Authorization Code' grant type and why it is so h
 I've tried to understand how OAuth 2.0 operates many times, but each time my conclusion was that this is to hard for me. But last time when someone asked me how does OAuth 2.0 works and the only think I was able to say was:</p>
 
 > well, You know, this is this thing You use when You want to log user with Facebook
+
+
 <p align="justify">
 I've decided that this is the time when I'll learn this technology.
 </p>
 
 <p align="justify">
-I went to <a href="https://oauth.net/2/">the offical website of OAuth2.0</a> immediately and I've started to read. It is strongly emphasized in the documentaion that the OAuth2.0 protocol should be used for authorization and <b>not for authentication</b>. The difference between those two notions you can find <a href="https://en.wikipedia.org/wiki/Authentication">here</a>. OAuth 2.0 offers different use cases. For each use case there is an individual <b>grant type</b>. So we have the following types:
+I went to <a href="https://oauth.net/2/">the offical website of OAuth2.0</a> immediately and I've started to read. It is strongly emphasized in the documentaion that the OAuth2.0 protocol should be used for authorization and <b>not for authentication</b>. The difference between those two notions you can find <a href="https://en.wikipedia.org/wiki/Authentication">here</a>. OAuth 2.0 offers different use cases. For each use case there is an individual <b>grant type</b>. So we have the following types:</p>
 <ol>
     <li>Authorization Code,</li>
     <li>Password,</li>
@@ -41,7 +43,8 @@ OAuth 2.0 defines roles which are involved in tokens exchange:
 </ol>
 
 <p align="justify">
-It is not unusual that authorization server and server with resources are sitting on the same machine, but from perspective of OAuth 2.0 those are two different entities, and we will treat them separately here. The server which is called here a "client" is a regular application server with application written in PHP, ASP.NET, Ruby on Rails...</p>
+It is not unusual that authorization server and server with resources are sitting on the same machine, but from perspective of OAuth 2.0 those are two different entities, and we will treat them separately here. The server which is called here a "client" is a regular application server with application written in PHP, ASP.NET, Ruby on Rails...
+</p>
 
 <p align="justify">
 To enable communication with API of interest (for example with Graph API from Facebook), one has to register the appliaction (in case of Facebook on <a href="https://developers.facebook.com/">https://developers.facebook.com</a>). During registration, address on which application should redirect user must be provided. The result of a registration is client id as well as client secret which will be used during requests to authorization server. Keys should be hold in secret on the back-end of application (from perspective of Auth 2.0, this back-end is called the client).
@@ -59,180 +62,30 @@ To enable communication with API of interest (for example with Graph API from Fa
 <p align="justify">
 URI is prepared - address under which authorization server will display for the user (the owner of the resource) question, whether user agrees to grant access to protected resource to the client. URI consist of: 
 </p>
+
 * `response_type=grant` constant value for this scenario.
 * `client_id=CLIENT_ID` identification obtained during registration of app on authorization server,
-<<<<<<<<<<<TUTAJ
-* `redirect_uri=REDIRECT_URI` adres przekierowania po wyświetleniu użytkownikowi zapytania o dostęp do zasobu (zdefiniowany na etapie tworzenia aplikacji na serwerze autoryzującym),
-* `scope=user_account` zakres zasobów do jakich udzielany jest dostęp,
-* `state=hkj34kjh5lkj2` wartość losowa mająca na celu zapobieganie atakom CSRF.
 
-Po złożeniu adresu będzie on wyglądać mniej więcej tak:
+* `redirect_uri=REDIRECT_URI` address of redirection after confirmitation from user that he or she is granting access to resource (defined during app registration on authorization server),
+* `scope=user_account` scope of resources to which access is granted,
+* `state=hkj34kjh5lkj2` random value used for CSRF protection.
 
-```
-https://oauth2-authorization-server.com/endpoint?response_type=grant&client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&scope=user_account&state=hkj34kjh5lkj2
-```
-
-Złożony adres wysyłany jest w  odpowiedzi do przeglądarki w nagłówku <b>location</b>.
-
-![phase1]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase1.svg){: .center-image }
-
-Przeglądarka po otrzymaniu takiej odpowiedzi, przekierowuje na otrzymany adres.
-
-![phase2]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase2.svg){: .center-image }
-
-<h1>2. Authorization Response</h1>
-
-![phase3]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase3.svg){: .center-image }
-
-<p align="justify">
-Jeśli właściciel zasobu wyrazi zgodę na dostęp, serwer autoryzacyjny odpowiada wiadomością HTTP z adresem redirect_uri w nagłówku <b>location</b>
-z dwoma paramterami:
-</p>
-* `code=AUTHORIZATION_CODE` wartość, która zostanie 'wymieniona' na token dostępu,
-* `state=hkj34kjh5lkj2` ta wartość musi być identyczna do tej wysłanej w zapytaniu.
-
-Przeglądarka po otrzymaniu tej odpowiedzi wykonuje zlecone przekierowanie:
-
-![phase4]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase4.svg){: .center-image }
-
-<h1>3. Access Token Request</h1>
-<p align="justify">
-Żeby klient uzyskał token dostępu, musi zaprezentować serwerowi autoryzującemu otrzymany kod autoryzacyjny. W tym celu wysyłane jest zapytanie do serwera autoryzacyjnego z następującymi parametrami:
-</p>
-
-* `grant_type=authorization_code` wartość stała dla tego scenariusza,
-* `code=AUTHORIZATION_CODE` otrzymany w poprzednim kroku kod,
-* `redirect_uri=REDIRECT_URI` adres zdefiniowany na etapie tworzenia aplikacji na serwerze autoryzującym,
-* `client_id=CLIENT_ID` identyfikator otrzymany podczas rejestracji apliacji na serwerze autoryzującym,
-* `client_secret=CLIENT_SECRET` klucz otrzymany podczas rejestracji apliacji na serwerze autoryzującym,
-
-Adres po złożeniu:
+After address assembly, it should look like this (formatting added for clarity):
 
 ```
-https://api.oauth2server.com/token-endpoint?grant_type=authorization_code&?code=AUTHORIZATION_CODE&redirect_uri=REDIRECT_URI&client_id=CLIENT_ID&client_secret=CLIENT_SECRET
+https://oauth2-authorization-server.com/endpoint?
+    response_type=grant&
+    client_id=CLIENT_ID&
+    redirect_uri=REDIRECT_URI&
+    scope=user_account&
+    state=hkj34kjh5lkj2
 ```
 
-Zapytanie wysyłane jest za pomocą metody HTTP POST.
+Assembled address is sent in response to the browser in <b>location</b> header.
 
+![phase1_eng]({{ site.url }}/assets/my-problem-with-oauth2.0/phase1_eng.svg){: .center-image }
 
-![phase5]({{ site.url }}/assets/moj-problem-z-oauth2.0/phase5.svg){: .center-image }
+After receiving such response, browser redirects to given url.
 
-<h1>4. Access Token Response</h1>
-<p align="justify">
-Jeżeli parametry zapytania się zgadzają, serwer autoryzacyjny wysyła do klienta token dostępu, wraz z jego datą ważności.
-</p>
+![phase2_eng]({{ site.url }}/assets/my-problem-with-oauth2.0/phase2_eng.svg){: .center-image }
 
-
-<p align="justify">
-Taki token może być używany po to, żeby odpytywać z nim API o zasoby, których właścicielem jest użytkownik (np. jego listę kontaktów, zdjęcia, dane personalne...).
-API po otrzymaniu zapytania z tokenem jest w stanie stwierdzić czy może udzielić dostępu do zasobu.
-
-Celowo pominąłem tutaj problem niepowodzenia na poszczególnych etapach wymiany oraz problem tokenów odświeżających.
-</p>
-<h2>Do czego nie używać wygenerowanego tokenu dostępu?</h2>
-<p align="justify">
-W sekcji <b>Common pitfalls for authentication using OAuth</b> na stronie <a href="https://oauth.net/articles/authentication/">https://oauth.net/articles/authentication</a> znajduje się zakładka, w której można przeczytać o tym, że <b>nie należy traktować faktu uzyskania tokenu dostępu jako dowód na uwierzytelnienie.</b> Wydaje się to być zrozumiałe. Na tej samej stronie napisane jest, że można budować uwierzytelnianie użytkowników z OAuth 2.0, jeżeli użyje się protokołu <a href="http://openid.net/connect/">OpenID Connect</a>, który zbudowany jest własnie z pomocą OAuth 2.0.
-</p>
-
-<h2>Dlaczego programiści mają problem ze zrozumieniem OAuth 2.0?</h2>
-<p align="justify">
-Z jednej strony dostępne są bardzo obszerne materiały na oficjalnej stronie <a href="https://oauth.net/">OAuth 2.0</a>. Dostępne są dokumenty RFC, mówiące dokładnie o tym jak zbudowany jest protokół, dostępne są świetne posty na blogach dotyczące OAuth 2.0, jak choćby ten wspomniany przeze mnie wcześniej na <a href="https://aaronparecki.com/oauth-2-simplified/">https://aaronparecki.com/oauth-2-simplified</a>.
-Z drugiej strony, można wejść na stronę
-<a href="https://developers.facebook.com/docs/php/howto/example_facebook_login">https://developers.facebook.com/docs/php/howto/example_facebook_login</a> gdzie podane są poniższe przykłady 'logowania z Facebook':
-</p>
-
-<b>/login.php</b>
-
-```php
-$fb = new Facebook\Facebook([
-  'app_id' => '{app-id}', // Replace {app-id} with your app id
-  'app_secret' => '{app-secret}',
-  'default_graph_version' => 'v2.2',
-  ]);
-
-$helper = $fb->getRedirectLoginHelper();
-
-$permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
-
-echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
-```
-
-<b>/fb-callback.php</b>
-
-```php
-$fb = new Facebook\Facebook([
-  'app_id' => '{app-id}', // Replace {app-id} with your app id
-  'app_secret' => '{app-secret}',
-  'default_graph_version' => 'v2.2',
-  ]);
-
-$helper = $fb->getRedirectLoginHelper();
-
-try {
-  $accessToken = $helper->getAccessToken();
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  // When Graph returns an error
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  // When validation fails or other local issues
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
-
-if (! isset($accessToken)) {
-  if ($helper->getError()) {
-    header('HTTP/1.0 401 Unauthorized');
-    echo "Error: " . $helper->getError() . "\n";
-    echo "Error Code: " . $helper->getErrorCode() . "\n";
-    echo "Error Reason: " . $helper->getErrorReason() . "\n";
-    echo "Error Description: " . $helper->getErrorDescription() . "\n";
-  } else {
-    header('HTTP/1.0 400 Bad Request');
-    echo 'Bad request';
-  }
-  exit;
-}
-
-// Logged in
-echo '<h3>Access Token</h3>';
-var_dump($accessToken->getValue());
-
-// The OAuth 2.0 client handler helps us manage access tokens
-$oAuth2Client = $fb->getOAuth2Client();
-
-// Get the access token metadata from /debug_token
-$tokenMetadata = $oAuth2Client->debugToken($accessToken);
-echo '<h3>Metadata</h3>';
-var_dump($tokenMetadata);
-
-// Validation (these will throw FacebookSDKException's when they fail)
-$tokenMetadata->validateAppId({app-id}); // Replace {app-id} with your app id
-// If you know the user ID this access token belongs to, you can validate it here
-//$tokenMetadata->validateUserId('123');
-$tokenMetadata->validateExpiration();
-
-if (! $accessToken->isLongLived()) {
-  // Exchanges a short-lived access token for a long-lived one
-  try {
-    $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
-  } catch (Facebook\Exceptions\FacebookSDKException $e) {
-    echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
-    exit;
-  }
-
-  echo '<h3>Long-lived</h3>';
-  var_dump($accessToken->getValue());
-}
-
-$_SESSION['fb_access_token'] = (string) $accessToken;
-
-// User is logged in with a long-lived access token.
-// You can redirect them to a members-only page.
-//header('Location: https://example.com/members.php');
-```
-
-<p align="justify">
-Czytając ten kod, ciężko jest nie odnieść wrażenia, że Facebook proponuje dokładnie takie rozwiązanie, które odradza oficjalna strona OAuth 2.0. To znaczy, po uzyskaniu tokenu autoryzacyjnego i wymienieniu go na token dostępu, zakłada się, że użytkownik jest zalogowany w aplikacji. Wydaje mi się, że ciężko jest zrozumieć programistom działanie OAuth 2.0 i logowania w mediach społecznościowych, gdy informacje w sieci na ten temat są tak niespójne.
-</p>

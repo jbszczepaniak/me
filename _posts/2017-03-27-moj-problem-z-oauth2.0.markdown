@@ -59,7 +59,7 @@ Przygotowywany jest URI - adres pod którym serwer autoryzacyjny wyświetli dla 
 </p>
 * `response_type=grant` wartość stała dla tego scenariusza.
 * `client_id=CLIENT_ID` identyfikator otrzymany podczas rejestracji apliacji na serwerze autoryzującym,
-* `redirect_uri=REDIRECT_URI` adres przekierowania po wyświetleniu użytkownikowi zapytania o dostęp do zasobu zdefiniowany na etapie tworzenia aplikacji na serwerze autoryzującym,
+* `redirect_uri=REDIRECT_URI` adres przekierowania po wyświetleniu użytkownikowi zapytania o dostęp do zasobu (zdefiniowany na etapie tworzenia aplikacji na serwerze autoryzującym),
 * `scope=user_account` zakres zasobów do jakich udzielany jest dostęp,
 * `state=hkj34kjh5lkj2` wartość losowa mająca na celu zapobieganie atakom CSRF.
 
