@@ -63,7 +63,7 @@ To enable communication with API of interest (for example with Graph API from Fa
 URI is prepared - address under which authorization server will display for the user (the owner of the resource) question, whether user agrees to grant access to protected resource to the client. URI consist of: 
 </p>
 
-* `response_type=grant` constant value for this scenario.
+* `response_type=grant` constant value for this scenario,
 * `client_id=CLIENT_ID` identification obtained during registration of app on authorization server,
 
 * `redirect_uri=REDIRECT_URI` address of redirection after confirmitation from user that he or she is granting access to resource (defined during app registration on authorization server),
@@ -88,4 +88,51 @@ Assembled address is sent in response to the browser in <b>location</b> header.
 After receiving such response, browser redirects to given url.
 
 ![phase2_eng]({{ site.url }}/assets/my-problem-with-oauth2.0/phase2_eng.svg){: .center-image }
+
+<h1>2. Authorization Response</h1>
+
+![phase3_en]({{ site.url }}/assets/my-problem-with-oauth2.0/phase3_en.svg){: .center-image }
+
+<p align="justify">
+If the owner of resource will grant access to resource, authorization server will answer with HTTP response with redirect_uri address in <b>location</b> header with two parameter:</p>
+
+* `code=AUTHORIZATION_CODE` value which will be 'exchanged' for access token,
+* `state=hkj34kjh5lkj2` value which must be identical to one sent in authorization request.
+
+The browser upon receiving such answer, makes a redirection ordered by authorization server:
+
+![phase4_en]({{ site.url }}/assets/my-problem-with-oauth2.0/phase4_en.svg){: .center-image } 
+
+<h1>3. Access Token Request</h1>
+<p align="justify">
+In order to obtain access token, client must present to the authorization server receivede authorization code. To do that, client sends to the authorization server request with following parameters:
+</p>
+
+* `grant_type=authorization_code` constant value for this scenario,
+* `code=AUTHORIZATION_CODE` received in previous step,
+* `redirect_uri=REDIRECT_URI` address defined during app registration on authorization server,
+* `client_id=CLIENT_ID` identificator received during app registration on authorization server,
+* `client_secret=CLIENT_SECRET` identificator received during app registration on authorization server.
+
+After address assembly, it should look like this (formatting added for clarity):
+
+```
+https://api.oauth2server.com/token-endpoint?
+    grant_type=authorization_code&
+    code=AUTHORIZATION_CODE&
+    redirect_uri=REDIRECT_URI&
+    client_id=CLIENT_ID&
+    client_secret=CLIENT_SECRET
+```
+
+Request is sent via HTTP POST method.
+
+
+
+
+
+
+
+
+
 
