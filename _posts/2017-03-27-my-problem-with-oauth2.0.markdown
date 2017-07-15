@@ -127,6 +127,129 @@ https://api.oauth2server.com/token-endpoint?
 
 Request is sent via HTTP POST method.
 
+![phase5_eng]({{ site.url }}/assets/my-problem-with-oauth2.0/phase5_en.svg){: .center-image }
+
+<h1>4. Access Token Response</h1>
+<p align="justify">
+If parameters of the request are correct, authorization server sends access token with expiration date to the client.
+</p>
+
+<p align="justify">
+Such a token may be used in order to ask API about resources owned by user (contacts list, photos, personal data...).
+After receiving a request with the token, API can thell whether access to the resource should be granted or not.
+I skipped here purposely problem of the failure during messages exchange, as well as problem of issuing refresh tokens.
+</p>
+
+<h2>When access token should not be used?</h2>
+<p align="justify">
+In section <b>Common pitfalls for authentication using OAuth</b> on the page <a href="https://oauth.net/articles/authentication/">https://oauth.net/articles/authentication</a> there is a section where one can read that <b>fact of having access token is not a proof of authentication</b>. It is quite understandable. On the same page one can read that there possibility to build authentication of users with OAuth 2.0 if <a href="http://openid.net/connect/">OpenID Connect</a> protocol is used. In fact OpenID Connect is built on top of OAuth 2.0.
+</p>
+
+<h2>Why developers have difficulties with understanding OAuth 2.0 ?</h2>
+<p align="justify">
+On the one hand there is plenty of information on the official site of <a href="https://oauth.net/">OAuth 2.0</a>. There are RFC documents about details of protocol. There are also excellent blog posts, for example mentioned earlier <a href="https://aaronparecki.com/oauth-2-simplified/">https://aaronparecki.com/oauth-2-simplified</a>. On the other hand, one can go to the 
+<a href="https://developers.facebook.com/docs/php/howto/example_facebook_login">https://developers.facebook.com/docs/php/howto/example_facebook_login</a> where there are following examples of 'Facebook login':
+</p>
+
+<b>/login.php</b>
+
+```php
+$fb = new Facebook\Facebook([
+  'app_id' => '{app-id}', // Replace {app-id} with your app id
+  'app_secret' => '{app-secret}',
+  'default_graph_version' => 'v2.2',
+  ]);
+
+$helper = $fb->getRedirectLoginHelper();
+
+$permissions = ['email']; // Optional permissions
+$loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
+
+echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
+```
+
+<b>/fb-callback.php</b>
+
+```php
+$fb = new Facebook\Facebook([
+  'app_id' => '{app-id}', // Replace {app-id} with your app id
+  'app_secret' => '{app-secret}',
+  'default_graph_version' => 'v2.2',
+  ]);
+
+$helper = $fb->getRedirectLoginHelper();
+
+try {
+  $accessToken = $helper->getAccessToken();
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  // When Graph returns an error
+  echo 'Graph returned an error: ' . $e->getMessage();
+  exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  // When validation fails or other local issues
+  echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  exit;
+}
+
+if (! isset($accessToken)) {
+  if ($helper->getError()) {
+    header('HTTP/1.0 401 Unauthorized');
+    echo "Error: " . $helper->getError() . "\n";
+    echo "Error Code: " . $helper->getErrorCode() . "\n";
+    echo "Error Reason: " . $helper->getErrorReason() . "\n";
+    echo "Error Description: " . $helper->getErrorDescription() . "\n";
+  } else {
+    header('HTTP/1.0 400 Bad Request');
+    echo 'Bad request';
+  }
+  exit;
+}
+
+// Logged in
+echo '<h3>Access Token</h3>';
+var_dump($accessToken->getValue());
+
+// The OAuth 2.0 client handler helps us manage access tokens
+$oAuth2Client = $fb->getOAuth2Client();
+
+// Get the access token metadata from /debug_token
+$tokenMetadata = $oAuth2Client->debugToken($accessToken);
+echo '<h3>Metadata</h3>';
+var_dump($tokenMetadata);
+
+// Validation (these will throw FacebookSDKException's when they fail)
+$tokenMetadata->validateAppId({app-id}); // Replace {app-id} with your app id
+// If you know the user ID this access token belongs to, you can validate it here
+//$tokenMetadata->validateUserId('123');
+$tokenMetadata->validateExpiration();
+
+if (! $accessToken->isLongLived()) {
+  // Exchanges a short-lived access token for a long-lived one
+  try {
+    $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+  } catch (Facebook\Exceptions\FacebookSDKException $e) {
+    echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
+    exit;
+  }
+
+  echo '<h3>Long-lived</h3>';
+  var_dump($accessToken->getValue());
+}
+
+$_SESSION['fb_access_token'] = (string) $accessToken;
+
+// User is logged in with a long-lived access token.
+// You can redirect them to a members-only page.
+//header('Location: https://example.com/members.php');
+```
+
+<p align="justify">
+While reading this code it is hard to not to get the impression that Facebook proposes the solution which is discouraged by official OAuth 2.0 website. It looks like they assume that user is logged in after receiving Access Token.
+</p>
+
+<p align="justify">
+In my humble opinion it's hard for the developers understand the operations of OAuth 2.0 and social media logins, when informations in the web are so incoherent.
+</p>
 
 
 
