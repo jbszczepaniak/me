@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "My problem with OAuth 2.0"
-date:   2017-03-27 00:15:00 +0100
+date:   2017-07-15 00:12:24 +0100
 lang: en
 permalink: /en/my-problem-with-oauth2
 featured-image: /assets/moj-problem-z-oauth2.0/oauth-logo.png
