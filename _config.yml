@@ -16,9 +16,9 @@
 title: Jędrzej Szczepaniak
 email: jbszczepaniak@gmail.com
 description_pl: > # this means to ignore newlines until "baseurl:"
-  Mój techniczny blog. Posty raz w miesiącu o tym co ostatnio mnie zainteresowało.
+  Mój techniczny blog. Posty o tym co ostatnio mnie zainteresowało.
 description_en: >
-  My technical blog. Posts once a month about things that interested my lately.
+  My technical blog. Posts about things that interested my lately.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://jedruniu.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
 github_username: jedruniu
