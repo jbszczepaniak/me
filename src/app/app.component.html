@@ -3,6 +3,18 @@
       <h1>Jędrzej Szczepaniak</h1>
       <h2><a href="http://github.com/jedruniu"><i class="fa fa-stack-overflow"></i></a> <a href="http://linkedin.com/jbszcz" ><i class="fa fa-linkedin"></i></a></h2>
   </div>
-  <p>Built with Angular</p>
+  
+  <div *ngFor="let s of sections">
+    <h4 (click)="open(s)">
+        <span *ngIf="!s.collapsed" class="fa fa-arrow-circle-right"></span>
+        {{s.title}}
+    </h4>
+    <ul [ngbCollapse]="s.collapsed">
+      <li *ngFor="let i of s.items"><strong>{{i.title}}</strong>: {{i.description}}
+        <a href="{{i.url}}"><i class="fa fa-link"></i></a>
+      </li>
+    </ul>
+  </div>
+
 </div>
 
