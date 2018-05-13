@@ -5,7 +5,7 @@
   </div>
   
   <div *ngFor="let s of sections">
-    <h4 (click)="open(s)">
+    <h4 (click)="open(s)" style="cursor: default">
         <span *ngIf="!s.collapsed" class="fa fa-arrow-circle-right"></span>
         {{s.title}}
     </h4>

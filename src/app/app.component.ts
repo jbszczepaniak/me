@@ -18,7 +18,6 @@ export class Item {
 })
 export class AppComponent {
   public title = 'app';
-  public collapsed = [false, true, true, true, true, true];
   public sections: Section[];
 
   public ngOnInit() {
@@ -34,11 +33,100 @@ export class AppComponent {
           }
       ]
       },
-      {title: 'What I am reading?', collapsed: true, items: []},
-      {title: 'What I did?', collapsed: true, items: []},
-      {title: 'What I read', collapsed: true, items: []},
-      {title: 'What I will do?', collapsed: true, items: []},
-      {title: 'What I will read?', collapsed: true, items: []},
+      {title: 'What I am reading?', collapsed: true, items: [
+        {
+          title: 'The Go Programming language',
+          description: null,
+          url: 'https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440',
+        },
+        {
+          title: 'Coders at Work: Reflections on the Craft of Programming',
+          description: null,
+          url: 'https://www.amazon.com/Coders-Work-Reflections-Craft-Programming/dp/1430219483',
+      }
+      ]},
+      {title: 'What I did?', collapsed: true, items: [
+        {
+          title: 'Spotify CLI',
+          description: 'Terminal base spotify client with player in the browser',
+          url: 'https://github.com/jedruniu/spotify-cli/blob/master/README.md',
+        },
+        {
+          title: 'ReactiveXArsenal',
+          description: 'As I started to use Angular X at work, I prepared playground for trying out RxJS.',
+          url: 'https://github.com/jedruniu/reactivex-arsenal',
+        },
+        {
+          title: 'Presentation: Testable code in Go',
+          description: 'Presentation given at STX Next with insights about code in go that is convinient to test.',
+          url: null,
+        },
+        {
+          title: 'Presentation: Networking in Docker',
+          description: 'Presentation given at STX Next about how containers are communicating with each other.',
+          url: null,
+        },
+      ]},
+      {title: 'What I read?', collapsed: true, items: []},
+      {title: 'What I want to do next?', collapsed: true, items: [
+        {
+          title: 'Status Bar for OS X',
+          description: 'I want to do some application for MacOS',
+          url: 'http://footle.org/WeatherBar/',
+        },
+        {
+          title: 'Public speaking course',
+          description: 'I want to improve these skills',
+          url: 'https://www.edx.org/course/introduction-public-speaking-uwashingtonx-comm220x2',
+        },
+        {
+          title: 'HTTP proxy/rate limiter',
+          description: 'App in golang for HTTP requests control',
+          url: '',
+        },
+        {
+          title: 'OAuth 2.0 golang playground',
+          description: 'Project where I wil ge to know really well OAuth 2.0 implementation and internals',
+          url: null,
+        }
+      ]},
+      {title: 'What I want to read next?', collapsed: true, items: [
+        {
+          title: 'Peopleware',
+          description: null,
+          url: null,
+        },
+        {
+          title: 'Code Complete',
+          description: null,
+          url: null,
+        },
+        {
+          title: 'Test-driven development',
+          description: null,
+          url: null,
+        },
+        {
+          title: 'Growing object-oriented software, guided by tests',
+          description: null,
+          url: null,
+        },
+        {
+          title: 'Refactoring, improving the design of existing code',
+          description: null,
+          url: null,
+        },
+        {
+          title: 'Structure and interpretation of computer programs',
+          description: null,
+          url: null,
+        },
+        {
+          title: 'The practice of programming',
+          description: null,
+          url: null,
+        },
+      ]},
     ];
   }
   public open(section) {
