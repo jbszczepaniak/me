@@ -88,7 +88,17 @@ export class AppComponent {
           title: 'OAuth 2.0 golang playground',
           description: 'Project where I wil ge to know really well OAuth 2.0 implementation and internals',
           url: null,
-        }
+        },
+        {
+          title: 'Intro to Artificial Intelligence',
+          description: 'AI Course by Peter Norvig',
+          url: 'https://eu.udacity.com/course/intro-to-artificial-intelligence--cs271',
+        },
+        {
+          title: 'Design of computer programs',
+          description: 'Software course by Peter Norvig',
+          url: 'https://eu.udacity.com/course/design-of-computer-programs--cs212',
+        },
       ]},
       {title: 'What I want to read next?', collapsed: true, items: [
         {
@@ -125,6 +135,11 @@ export class AppComponent {
           title: 'The practice of programming',
           description: null,
           url: null,
+        },
+        {
+          title: 'Artificial Intelligence: A Modern Approach',
+          description: null,
+          url: 'https://www.amazon.com/Artificial-Intelligence-Modern-Approach-3rd/dp/0136042597',
         },
       ]},
     ];
