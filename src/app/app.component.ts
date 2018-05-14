@@ -146,6 +146,11 @@ export class AppComponent {
           description: null,
           url: 'https://www.amazon.com/Artificial-Intelligence-Modern-Approach-3rd/dp/0136042597',
         },
+        {
+          title: 'Writing an interpreter in go',
+          description: null,
+          url: 'https://www.amazon.com/Writing-Interpreter-Go-Thorsten-Ball-ebook',
+        }
       ]},
     ];
   }
