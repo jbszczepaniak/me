@@ -67,8 +67,13 @@ export class AppComponent {
           url: null,
         },
       ]},
-      {title: 'What I read?', collapsed: true, items: []},
+      // {title: 'What I read?', collapsed: true, items: []},
       {title: 'What I want to do next?', collapsed: true, items: [
+        {
+          title: "asyncio (python) and channels (go) comparision",
+          description: "project or presentation, don't know yet",
+          url: null,
+        },
         {
           title: 'Status Bar for OS X',
           description: 'I want to do some application for MacOS',
