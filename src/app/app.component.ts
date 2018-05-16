@@ -48,7 +48,7 @@ export class AppComponent {
       {title: 'What I did?', collapsed: true, items: [
         {
           title: 'Spotify CLI',
-          description: 'Terminal base spotify client with player in the browser',
+          description: 'Terminal base spotify client with player in the browser, written in Go.',
           url: 'https://github.com/jedruniu/spotify-cli/blob/master/README.md',
         },
         {
@@ -57,12 +57,12 @@ export class AppComponent {
           url: 'https://github.com/jedruniu/reactivex-arsenal',
         },
         {
-          title: 'Presentation: Testable code in Go',
+          title: 'Presentation "Testable code in Go"',
           description: 'Presentation given at STX Next with insights about code in go that is convinient to test.',
           url: null,
         },
         {
-          title: 'Presentation: Networking in Docker',
+          title: 'Presentation "Networking in Docker"',
           description: 'Presentation given at STX Next about how containers are communicating with each other.',
           url: null,
         },
@@ -70,8 +70,8 @@ export class AppComponent {
       // {title: 'What I read?', collapsed: true, items: []},
       {title: 'What I want to do next?', collapsed: true, items: [
         {
-          title: "asyncio (python) and channels (go) comparision",
-          description: "project or presentation, don't know yet",
+          title: 'asyncio (python) and channels (go) comparision',
+          description: 'project or presentation, don\'t know yet',
           url: null,
         },
         {
@@ -104,6 +104,11 @@ export class AppComponent {
           description: 'Software course by Peter Norvig',
           url: 'https://eu.udacity.com/course/design-of-computer-programs--cs212',
         },
+        {
+          title: 'dgraph playground',
+          description: 'Play with graph databases, this looks kind of fun',
+          url: 'https://github.com/dgraph-io/dgraph',
+        }
       ]},
       {title: 'What I want to read next?', collapsed: true, items: [
         {

@@ -1,6 +1,8 @@
 <div class="container" style="margin-top: 10px;">
   <div class="jumbotron">
-      <h1>Jędrzej Szczepaniak <a href="http://github.com/jedruniu"><i class="fa fa-stack-overflow"></i></a> <a href="http://linkedin.com/jbszcz" ><i class="fa fa-linkedin"></i></a></h1>
+      <h1>Jędrzej Szczepaniak</h1>
+        <h4>
+          <a href="https://stackoverflow.com/users/6556102/jedruniu"><i class="fa fa-stack-overflow"></i></a> <a href="https://www.linkedin.com/in/jbszcz/" ><i class="fa fa-linkedin"></i></a> <a href="http://github.com/jedruniu" ><i class="fa fa-github"></i></a></h4>
       <h6>Python Developer @ <a href="http://stxnext.com">STX Next</a></h6>
       <h6>TDD practitioner, fan of tested, readable code.</h6>
   </div>
@@ -11,14 +13,14 @@
         {{s.title}}
     </h4>
     <ul [ngbCollapse]="s.collapsed">
-      <li *ngFor="let i of s.items"><strong>{{i.title}}</strong>: {{i.description}}
-        <a href="{{i.url}}"><i class="fa fa-link"></i></a>
+      <li *ngFor="let i of s.items"><strong>{{i.title}}</strong><span *ngIf="i.description">:</span> {{i.description}}
+        <a *ngIf="i.url" href="{{i.url}}"><i class="fa fa-link"></i></a>
       </li>
     </ul>
   </div>
 </div>
-<footer class="footer" style="height: 60px; bottom: 0; background-color: #f5f5f5; position: absolute; width: 100%">
-  <div class="container" style="text-align: center; margin-top: 20px">
-    <p>Built with <a href="https://angular.io/"><img width="30" style="margin-top: -4px;" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="></a></p>
+<footer class="footer">
+  <div class="container">
+    <p style="text-align: center">Built with <a href="https://angular.io/"><img width="30" style="margin-top: -4px;" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="></a></p>
   </div>
 </footer>
