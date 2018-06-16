@@ -27,10 +27,10 @@ export class AppComponent {
         collapsed: false,
         items: [
           {
-            title: 'gophercises',
-            description: 'Well tested solutions for exercises from http://gophercises.com',
-            url: 'https://github.com/jedruniu/gophercises-solutions',
-          }
+            title: 'Training routes plotter',
+            description: 'I want to be able to plot routes from all my trainings from given month and observe all routes at once, preferably with some statistics',
+            url: null,
+          },
       ]
       },
       {title: 'What I am reading?', collapsed: true, items: [
@@ -39,13 +39,13 @@ export class AppComponent {
           description: null,
           url: 'https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440',
         },
-        {
-          title: 'Coders at Work: Reflections on the Craft of Programming',
-          description: null,
-          url: 'https://www.amazon.com/Coders-Work-Reflections-Craft-Programming/dp/1430219483',
-      }
       ]},
       {title: 'What I did?', collapsed: true, items: [
+        {
+          title: 'gophercises',
+          description: 'Well tested solutions for exercises from http://gophercises.com',
+          url: 'https://github.com/jedruniu/gophercises-solutions',
+        },
         {
           title: 'Spotify CLI',
           description: 'Terminal base spotify client with player in the browser, written in Go.',
@@ -67,8 +67,17 @@ export class AppComponent {
           url: null,
         },
       ]},
-      // {title: 'What I read?', collapsed: true, items: []},
-      {title: 'What I want to do next?', collapsed: true, items: [
+      {
+        title: 'What I recently read?', collapsed: true, items: [
+          {
+            title: 'Coders at Work: Reflections on the Craft of Programming',
+            description: null,
+            url: 'https://www.amazon.com/Coders-Work-Reflections-Craft-Programming/dp/1430219483',
+          },
+        ]
+      },
+      {
+        title: 'What I want to do next?', collapsed: true, items: [
         {
           title: 'asyncio (python) and channels (go) comparision',
           description: 'project or presentation, don\'t know yet',
