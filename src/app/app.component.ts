@@ -70,6 +70,11 @@ export class AppComponent {
       {
         title: 'What I recently read?', collapsed: true, items: [
           {
+            title: 'Peopleware',
+            description: null,
+            url: 'https://www.amazon.com/Peopleware-Productive-Projects-Tom-DeMarco/dp/0932633439',
+          },
+          {
             title: 'Coders at Work: Reflections on the Craft of Programming',
             description: null,
             url: 'https://www.amazon.com/Coders-Work-Reflections-Craft-Programming/dp/1430219483',
@@ -120,11 +125,6 @@ export class AppComponent {
         }
       ]},
       {title: 'What I want to read next?', collapsed: true, items: [
-        {
-          title: 'Peopleware',
-          description: null,
-          url: null,
-        },
         {
           title: 'Code Complete',
           description: null,
