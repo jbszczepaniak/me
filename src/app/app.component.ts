@@ -26,14 +26,13 @@ export class AppComponent {
         title: 'What I am doing?',
         collapsed: false,
         items: [
-          
-      ]
+        ]
       },
       {title: 'What I am reading?', collapsed: true, items: [
         {
-          title: 'The Go Programming language',
+          title: 'Nginx HTTP Server',
           description: null,
-          url: 'https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440',
+          url: 'https://www.amazon.com/Nginx-HTTP-Server-Clement-Nedelcu/dp/1785280333',
         },
       ]},
       {title: 'What I did?', collapsed: true, items: [
