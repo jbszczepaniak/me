@@ -26,11 +26,7 @@ export class AppComponent {
         title: 'What I am doing?',
         collapsed: false,
         items: [
-          {
-            title: 'Training routes plotter',
-            description: 'I want to be able to plot routes from all my trainings from given month and observe all routes at once, preferably with some statistics',
-            url: null,
-          },
+          
       ]
       },
       {title: 'What I am reading?', collapsed: true, items: [
@@ -41,6 +37,11 @@ export class AppComponent {
         },
       ]},
       {title: 'What I did?', collapsed: true, items: [
+        {
+          title: 'Training routes plotter',
+          description: 'I want to be able to plot routes from all my trainings from given month and observe all routes at once, preferably with some statistics',
+          url: null,
+        },
         {
           title: 'gophercises',
           description: 'Well tested solutions for exercises from http://gophercises.com',
