@@ -30,9 +30,9 @@ export class AppComponent {
       },
       {title: 'What I am reading?', collapsed: true, items: [
         {
-          title: 'Nginx HTTP Server',
+          title: '500 Lines or Less',
           description: null,
-          url: 'https://www.amazon.com/Nginx-HTTP-Server-Clement-Nedelcu/dp/1785280333',
+          url: 'http://aosabook.org/en/index.html',
         },
       ]},
       {title: 'What I did?', collapsed: true, items: [
@@ -126,6 +126,16 @@ export class AppComponent {
       ]},
       {title: 'What I want to read next?', collapsed: true, items: [
         {
+          title: 'The Architecture of Open Source Applications, Volume I',
+          description: null,
+          url: 'http://aosabook.org/en/index.html',
+        },
+        {
+          title: 'The Architecture of Open Source Applications, Volume II',
+          description: null,
+          url: 'http://aosabook.org/en/index.html',
+        },
+        {
           title: 'Code Complete',
           description: null,
           url: null,
@@ -167,6 +177,16 @@ export class AppComponent {
         }
       ]},
     ];
+    
+    // Uncollapse first non-empty section.
+    for (const section of this.sections) {
+      if (section.items.length === 0) {
+        section.collapsed = true;
+      } else {
+        section.collapsed = false;
+        break;
+      }
+    }
   }
   public open(section) {
     this.sections.map(s => s.collapsed = true);
